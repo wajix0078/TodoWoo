@@ -1,0 +1,25 @@
+{% extends 'todo/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>View Your todo</h1>
+{% block content %}
+<h1>{{ error }}</h1>
+<h1>{{ todo.title }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+
+<form method="post" action="{% url 'completeTodo'  todo.id %}">
+    {% csrf_token %}
+    <button type="submit">Complete</button>
+</form>
+{% endblock %}
+</body>
+</html>

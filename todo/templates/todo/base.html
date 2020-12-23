@@ -1,7 +1,8 @@
 {% if user.is_authenticated %}
 
-logged in as {{ user.username }}
-
+<h4>Logged in as {{ user.username }}</h4>
+<br>
+<br>
 <!--<a href="{% url 'logoutuser' %}">Logout</a>-->
 
 <form action="{% url 'logoutuser' %}" method="post" >

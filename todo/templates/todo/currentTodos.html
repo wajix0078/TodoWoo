@@ -10,8 +10,12 @@
 <h1>Current Todos</h1>
 <ul>
     {% for todo in todos %}
-    <li>Title : {{ todo.title }}</li>
-    <li>Memo :  {{ todo.memo }}</li>
+    <a href="{% url 'viewTodo' todo.id  %}">
+        <li> Title :{% if todo.important%}<b>{% endif %} {{ todo.title }}{% if todo.important%}</b>{% endif %}
+            {% if todo.memo %} Memo : {{ todo.memo }}
+        </li>
+        {% endif %}
+    </a>
 </ul>
 {% endfor %}
 {% endblock %}
